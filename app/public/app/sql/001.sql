@@ -1,0 +1,13 @@
+CREATE TABLE `ludek_sauto_robot`.`user_agents` ( `id` INT NOT NULL AUTO_INCREMENT , `agent` VARCHAR(500) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `ludek_sauto_robot`.`urls` ( `id` INT NOT NULL AUTO_INCREMENT , `url` VARCHAR(500) NOT NULL , `type` VARCHAR(255) NOT NULL , `processed` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `urls` CHANGE `processed` `processed` DATETIME NULL;
+ALTER TABLE `car` CHANGE `seller_id` `seller_id` VARCHAR(255) NOT NULL;
+ALTER TABLE `car` CHANGE `produced` `produced` VARCHAR(255) NULL DEFAULT NULL;
+ALTER TABLE `car` CHANGE `produced` `produced` INT(11) NULL;
+ALTER TABLE `car` CHANGE `model` `model` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `car` CHANGE `model_note` `model_note` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `car` CHANGE `power` `power` INT(11) NULL;
+ALTER TABLE `car` ADD `in_use_from` VARCHAR(255) NULL AFTER `seller_id`;
+ALTER TABLE `urls` CHANGE `url` `url` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `urls` ADD `category` VARCHAR(255) NOT NULL AFTER `processed`;
+CREATE TABLE `ludek_sauto_robot`.`car` ( `id` INT NOT NULL AUTO_INCREMENT , `sauto_id` INT NOT NULL , `sauto_url` TEXT NOT NULL , `last_check` DATE NOT NULL , `actual` TINYINT NOT NULL , `brand` VARCHAR(255) NOT NULL , `model` VARCHAR(500) NOT NULL , `model_note` TEXT NOT NULL , `status` VARCHAR(255) NOT NULL , `body_work` VARCHAR(255) NOT NULL , `fuel` VARCHAR(255) NOT NULL , `volume` INT NOT NULL , `transmission` VARCHAR(255) NOT NULL , `power` INT NOT NULL , `color` VARCHAR(255) NOT NULL , `price` INT NOT NULL , `produced` INT NOT NULL , `tachometer` INT NOT NULL , `seller_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

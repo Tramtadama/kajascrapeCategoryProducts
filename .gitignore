@@ -1,0 +1,7 @@
+app/public/app/config/local.neon
+.env
+.vscode
+.history
+pages
+log
+temp
